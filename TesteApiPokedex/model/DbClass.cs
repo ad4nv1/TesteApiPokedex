@@ -15,7 +15,7 @@ namespace TesteApiPokedex.model
 
         public static SQLiteConnection ConnectionDb()
         {
-            conection = new SQLiteConnection("Data Source=C:\\Users\\Adan\\source\\repos\\TesteApiPokedex\\TesteApiPokedex\\dbfortest\\db_pokemon.db");
+            conection = new SQLiteConnection("Data Source=C:\\Users\\Adan\\source\\repos\\TesteApiPokedex\\TesteApiPokedex\\dbfortest\\db_teste.db");
             conection.Open();
             return conection;
         }
@@ -49,7 +49,7 @@ namespace TesteApiPokedex.model
             {
                 using (var cmd = ConnectionDb().CreateCommand())
                 {
-                    cmd.CommandText = "SELECT * FROM pokemon WHERE NAME='"+sql+"'";
+                    cmd.CommandText = "SELECT * FROM pokemon WHERE name='"+sql+"'";
                     da = new SQLiteDataAdapter(cmd.CommandText, ConnectionDb());
                     da.Fill(dt);
                     ConnectionDb().Close();
@@ -65,22 +65,36 @@ namespace TesteApiPokedex.model
         }
 
         //public static void Add(TableSearch tableSearch)
-        public static void Add(long id, string name)
+        //public static void Add(long id, string name, string type, long height, long weight, string image)
+        public static async Task Add(long id, string name, string type, long height, long weight, string image)
         {
+            //tableSearch  = new TableSearch();
             try
             {
                 using (var cmd = ConnectionDb().CreateCommand())
                 {
-                    cmd.CommandText = "INSERT INTO pokemon(NAME, IDENTIFICATION) values (@name, @identification)";
-                    cmd.Parameters.AddWithValue("@Name", name);
-                    cmd.Parameters.AddWithValue("@Identification", id);
+                    //cmd.CommandText = "INSERT INTO pokemon(id_pokemon, name, type, height, weight, image) values (@id_pokemon, @name, @type, @height, @weight, @image)";
+                    //cmd.Parameters.AddWithValue("@id_pokemon", TableSearch.id);
+                    //cmd.Parameters.AddWithValue("@name", TableSearch.name);
+                    //cmd.Parameters.AddWithValue("@type", TableSearch.type);
+                    //cmd.Parameters.AddWithValue("@height", TableSearch.height);
+                    //cmd.Parameters.AddWithValue("@weight", TableSearch.weight);
+                    //cmd.Parameters.AddWithValue("@image", TableSearch.image);
+                    //cmd.ExecuteNonQuery();INSERT INTO pokemon(id_poke
+                    cmd.CommandText = "mon, name, type, height, weight, image) values (@id_pokemon, @name, @type, @height, @weight, @image)";
+                    cmd.Parameters.AddWithValue("@id_pokemon", id);
+                    cmd.Parameters.AddWithValue("@name", name);
+                    cmd.Parameters.AddWithValue("@type", type);
+                    cmd.Parameters.AddWithValue("@height", height);
+                    cmd.Parameters.AddWithValue("@weight", weight);
+                    cmd.Parameters.AddWithValue("@image", image);
                     cmd.ExecuteNonQuery();
                 }
-            }
+        }
             catch (Exception ex)
             {
                 throw ex;
             }
-        }
+}
     }
 }

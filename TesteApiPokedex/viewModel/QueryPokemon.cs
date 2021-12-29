@@ -21,12 +21,12 @@ namespace TesteApiPokedex.viewModel
                 var dataPokemon = RestService.For<PokemonApiService>("https://pokeapi.co/api/v2");
 
 
-                var poke = await dataPokemon.GetPokemonAsync(namePokemon);
+               // var poke = await dataPokemon.GetPokemonAsync(namePokemon);
 
 
 
-            joao =  "\n " + poke.Id + "\n " + poke.Name + "\n " + poke.Types;
-            Console.WriteLine("\n " + poke.Id + "\n " + poke.Name + "\n " + poke.Types + "\n " + poke.Sprites);
+          //  joao =  "\n " + poke.Id + "\n " + poke.Name + "\n " + poke.Types;
+           // Console.WriteLine("\n " + poke.Id + "\n " + poke.Name + "\n " + poke.Types + "\n " + poke.sprites);
         }
         //catch (Exception e)
         //{

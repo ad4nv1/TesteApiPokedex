@@ -7,7 +7,7 @@ using Newtonsoft.Json;
 
 namespace TesteApiPokedex.model
 {
-    public partial class Form
+    public class Form
     {
         [JsonProperty("base_experience")]
         public long BaseExperience { get; set; }
@@ -25,7 +25,7 @@ namespace TesteApiPokedex.model
         public long Order { get; set; }
 
         [JsonProperty("sprites")]
-        public Sprites Sprites { get; set; }
+        public Sprites sprites { get; set; }
 
         [JsonProperty("stats")]
         public List<Stat> Stats { get; set; }

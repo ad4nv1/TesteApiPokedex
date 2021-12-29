@@ -12,6 +12,15 @@ namespace TesteApiPokedex.viewModel
     {
         [Get("/pokemon/{name}")]
         Task<Form> GetPokemonAsync(string name);
+
+
+
+        [Get("/pokemon?limit=10&offset={number}")]
+        Task<Pages> GetPagesAsync(int number);
     }
+
+   
+        
+    
 
 }

@@ -2,10 +2,10 @@
 
 namespace TesteApiPokedex.model
 {
-    public partial class Stat
+    public class Stat
     {
         [JsonProperty("base_stat")]
-        public long BaseStat { get; set; }
+        public int Base { get; set; }
 
         [JsonProperty("effort")]
         public long Effort { get; set; }

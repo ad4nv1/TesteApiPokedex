@@ -8,6 +8,7 @@
     ".NETCoreApp,Version=v5.0": {
       "TesteApiPokedex/1.0.0": {
         "dependencies": {
+          "EntityFramework": "6.4.4",
           "Newtonsoft.Json": "13.0.1",
           "Refit": "6.1.15",
           "System.Data.SQLite": "1.0.115.5"

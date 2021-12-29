@@ -10,9 +10,9 @@ namespace TesteApiPokedex.viewModel
     {
         public static async void RegisterPokemon(string name)
         {
-           await TableSearch.GetRequerimentPokemonInApi(name);
+            await TableSearch.GetRequerimentPokemonInApi(name);
 
-            DbClass.Add(TableSearch.id, TableSearch.name);
+            await DbClass.Add(TableSearch.id, TableSearch.name, TableSearch.type, TableSearch.height, TableSearch.weight, TableSearch.image);
 
         }
 
